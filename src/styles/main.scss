@@ -36,33 +36,44 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+form div{
+  padding: 1em;
+  input{
+  font-size: 3em;
+  background-color: transparent;
+  border: none;
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
 .card {
   padding: 2em;
+  box-shadow: #1a1a1a 0 3px 10px -5px;
+  margin: 0 32%;
+  border-radius: 1em;
 }
-
-.read-the-docs {
-  color: #888;
+#jokeOutput {
+  margin: 2em 1em;
 }
-
+#weatherOutput {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 5vw;
+ align-items: center;
+ justify-content: center;
+  #temperature{
+    display: inline-block;
+    font-size: 4em;
+    font-size: 4vw;
+    padding: 0.5em;
+  }
+  *{
+    flex: 0 1 auto;
+  }
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -91,6 +102,7 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    color: white;
+    background-color: #00d1dc;
   }
 }

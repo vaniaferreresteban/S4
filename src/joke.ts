@@ -5,11 +5,32 @@ export const getJoke = async (): Promise<JokeRequest> => {
     const response = await fetch('https://icanhazdadjoke.com/', {
       headers: { Accept: 'application/json' },
     });
-    const data = await response.json();
     if (!response.ok) {
-      throw new Error(await data.message);
+      throw new Error("Error 404: L'Acudit no s'ha trobat");
     }
+    const data = await response.json();
+
     return data;
+  } catch (error) {
+    throw error;
+  }
+};
+export const getChuckJoke = async (): Promise<JokeRequest> => {
+  try {
+    const response = await fetch('https://api.chucknorris.io/jokes/random', {
+      headers: { Accept: 'application/json' },
+    });
+    if (!response.ok) {
+      throw new Error("Error 404: L'Acudit no s'ha trobat");
+    }
+    const data = await response.json();
+    const jokeRequest = {
+      id: data.id,
+      joke: data.value,
+      status: response.status,
+    };
+
+    return jokeRequest;
   } catch (error) {
     throw error;
   }
