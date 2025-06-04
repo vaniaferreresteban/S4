@@ -16,13 +16,17 @@ export const organizeWeather = (weather: MeteoStats) => {
 
   return `
       <img src="${img}" alt="" />
-      <div id="temperature">|${weather.ta}</div>
+      <div class="plec"></div>
+      <div id="temperature">${weather.ta}<span class="halfwidth">ºC</span></div>
       <div>
-        <div>${weather.prec}</div>
-        <div>${weather.hr}</div>
-        <div>${weather.tamin}</div>
-        <div>${weather.tamax}</div>
-      </div>`;
+        <div>T.Mínima: ${weather.tamin}ºC</div>
+        <div>T.Màxima: ${weather.tamax}ºC</div>
+      </div>
+      <div>
+        <div>Prec.: ${weather.prec}%</div>
+        <div>Humitat: ${weather.hr}%</div>
+      </div>
+       `;
 };
 export const getWeather = async (): Promise<MeteoStats> => {
   try {

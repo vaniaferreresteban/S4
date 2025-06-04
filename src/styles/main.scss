@@ -25,53 +25,99 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: flex-start;
   min-width: 320px;
   min-height: 100vh;
+  font-size: 16px;
+  background-color: lightcoral;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
   line-height: 1.1;
 }
-
+.plec {
+  border-right: 1px solid black;
+  height: 100%;
+}
+.halfwidth {
+  font-size: 0.5em;
+  display: inline-block;
+}
 #app {
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  > div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+    position: relative;
+  }
 }
-form div{
-  padding: 1em;
-  input{
-  font-size: 3em;
-  background-color: transparent;
-  border: none;
+form div {
+  overflow: hidden;
+  padding: 0.3em;
+  input {
+    font-size: 1.8em;
+    background-color: transparent;
+    border: none;
   }
 }
 .card {
-  padding: 2em;
-  box-shadow: #1a1a1a 0 3px 10px -5px;
-  margin: 0 32%;
+  position: relative;
   border-radius: 1em;
+  z-index: 5;
+  flex: 1 0 auto;
+
 }
 #jokeOutput {
-  margin: 2em 1em;
+  margin: 0.2em;
 }
 #weatherOutput {
+  flex: 0 0 218px;
+  position: relative;
   display: flex;
-  flex-flow: row nowrap;
-  height: 5vw;
- align-items: center;
- justify-content: center;
-  #temperature{
-    display: inline-block;
-    font-size: 4em;
-    font-size: 4vw;
-    padding: 0.5em;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  > img,
+  > div {
+    margin: 0 0.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    line-height: 53px;
+    font-size: 53px;
+    height: 53px;
   }
-  *{
+  > div {
+    width: 170px;
+  }
+  #temperature {
+    margin-bottom: 6px;
+    flex-direction: row;
+    flex: 1 0 auto;
+    width: auto;
+  }
+  .plec {
+    display: none;
+  }
+  div div {
+    font-size: 16px;
+    line-height: 16px;
+    white-space: nowrap;
+    color: grey;
+  }
+  * {
     flex: 0 1 auto;
+    text-align: left;
   }
 }
 button {
@@ -104,5 +150,51 @@ button:focus-visible {
   button {
     color: white;
     background-color: #00d1dc;
+  }
+}
+@media only screen and (min-width: 600px) {
+  body {
+    font-size: 18px;
+    h1{
+      font-size:36px;
+    }
+    #weatherOutput {
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      flex: 0 0 auto;
+      #temperature {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        flex: 1 0 auto;
+        font-size: 30px;
+      }
+    }
+    
+  }
+}
+@media only screen and (min-width: 1000px) {
+  body {
+    font-size: 22px;
+    background-color: white;
+    margin: 0 ;
+    background-color: lightcyan;
+  .card{
+  background-color: lightcoral;
+  box-shadow: 0 5px 12px -2px;
+  padding: 1em;
+  }
+  #weatherOutput{
+  margin-bottom: 5em;
+  >div {
+    
+    align-items: flex-start;
+  }
+  }
+  #jokeOutput{
+  margin: 2em 1em;
+  }
   }
 }
