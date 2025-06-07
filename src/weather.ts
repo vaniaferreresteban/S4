@@ -29,7 +29,6 @@ export const organizeWeather = (weather: MeteoStats) => {
        `;
 };
 export const getWeather = async (): Promise<MeteoStats> => {
-  try {
     const response = await fetch(
       'https://opendata.aemet.es/opendata/api/observacion/convencional/datos/estacion/0194D/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2YW5pYWZlcnJlcmVzdGViYW5AZ21haWwuY29tIiwianRpIjoiOWJiODU0ODgtMDg0MS00NjhjLTg4ZjUtOWMwMThhM2Y0NjNjIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE3NDg0MzI2NjQsInVzZXJJZCI6IjliYjg1NDg4LTA4NDEtNDY4Yy04OGY1LTljMDE4YTNmNDYzYyIsInJvbGUiOiIifQ.GOBgTs6jp0E0NWtoyCygM4h-IjxDKGsBtVLy-LsxpOE',
       {
@@ -50,7 +49,4 @@ export const getWeather = async (): Promise<MeteoStats> => {
     const weatherData: MeteoStats = (await response2.json())[0];
 
     return weatherData;
-  } catch (error) {
-    throw error;
-  }
 };

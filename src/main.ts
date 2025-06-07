@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     button.addEventListener('click', () => {
       const score = button.dataset.score;
       selectedScoreInput.value = score!;
-      console.log(selectedScoreInput);
     });
   });
 
