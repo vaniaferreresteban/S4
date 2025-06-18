@@ -20,13 +20,13 @@ In previous exercises, we hardcoded data directly into our web applications, whi
 ## API Information
 
 The documentation for the first jokes API to consume is:
-[Calling the API](https://icanhazdadjoke.com/)
+[icanhazdadjoke.com](https://icanhazdadjoke.com/)
 
 The documentation for the second jokes API to consume is:
-[Calling the API](https://api.chucknorris.io/) 
+[chucknorris.io](https://api.chucknorris.io/) 
 
 The documentation for the weather API to consume is:
-[Calling the API](https://opendata.aemet.es/centrodedescargas/inicio) 
+[opendata.aemet.es](https://opendata.aemet.es/centrodedescargas/inicio) 
 
 ## Project Structure
 
@@ -97,4 +97,4 @@ Feel free to contribute to this project by submitting issues or pull requests.
 
 ## License
 
-This project is open-source and available under the MIT License. (Assuming MIT License, if another license is preferred, please update.)
+This project is open-source and available under the MIT License.
