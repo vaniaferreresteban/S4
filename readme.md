@@ -17,6 +17,13 @@ This project involves building a web application that displays jokes, interacts 
 
 In previous exercises, we hardcoded data directly into our web applications, which is not a common practice in real-world scenarios. This project focuses on consuming data from an external API to retrieve a list of jokes. The main technologies to be put into practice are typescript and data fetching from API.
 
+It's also a responsive aplication:
+
+<img src="https://i.imgur.com/3sgzlrb.png" height="200">:
+<img src="https://i.imgur.com/lQD7uQe.png" height="200">
+<img src="https://i.imgur.com/50ycSaP.png" height="200">
+
+
 ## API Information
 
 The documentation for the first jokes API to consume is:
@@ -55,12 +62,12 @@ git clone [https://github.com/vaniaferresterban/S4.git](https://github.com/vania
 Navigate to the project directory:
 Bash
 
-cd S4
+    cd S4
 
 Install dependencies:
 Bash
 
-npm install
+    npm install
 
 Start the development server:
 Bash
