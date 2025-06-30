@@ -12,6 +12,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+form input {
+  cursor: pointer;
+}
+form input:hover {
+  text-shadow: 0px 0px 10px white;
+}
 
 a {
   font-weight: 500;
@@ -53,9 +59,9 @@ h1 {
   padding: 2rem;
   text-align: center;
   > div {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
     position: relative;
   }
 }
@@ -73,7 +79,6 @@ form div {
   border-radius: 1em;
   z-index: 5;
   flex: 1 0 auto;
-
 }
 #jokeOutput {
   margin: 0.2em;
@@ -155,8 +160,8 @@ button:focus-visible {
 @media only screen and (min-width: 600px) {
   body {
     font-size: 18px;
-    h1{
-      font-size:36px;
+    h1 {
+      font-size: 36px;
     }
     #weatherOutput {
       flex-flow: row nowrap;
@@ -172,29 +177,27 @@ button:focus-visible {
         font-size: 30px;
       }
     }
-    
   }
 }
 @media only screen and (min-width: 800px) {
   body {
     font-size: 22px;
     background-color: white;
-    margin: 0 ;
+    margin: 0;
     background-color: lightcyan;
-  .card{
-  background-color: lightcoral;
-  box-shadow: 0 5px 12px -2px;
-  padding: 1em;
-  }
-  #weatherOutput{
-  margin-bottom: 5em;
-  >div {
-    
-    align-items: flex-start;
-  }
-  }
-  #jokeOutput{
-  margin: 2em 1em;
-  }
+    .card {
+      background-color: lightcoral;
+      box-shadow: 0 5px 12px -2px;
+      padding: 1em;
+    }
+    #weatherOutput {
+      margin-bottom: 5em;
+      > div {
+        align-items: flex-start;
+      }
+    }
+    #jokeOutput {
+      margin: 2em 1em;
+    }
   }
 }
