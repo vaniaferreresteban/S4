@@ -1,11 +1,13 @@
 import type { JokeRequest } from './types/JokeRequest';
 
+
+
 export const getJoke = async (): Promise<JokeRequest> => {
   const response = await fetch('https://icanhazdadjoke.com/', {
     headers: { Accept: 'application/json' },
   });
   if (!response.ok) {
-    throw new Error("Error 404: L'Acudit no s'ha trobat");
+    throw new Error("L'Acudit no s'ha trobat");
   }
   const data = await response.json();
 
@@ -16,7 +18,7 @@ export const getChuckJoke = async (): Promise<JokeRequest> => {
     headers: { Accept: 'application/json' },
   });
   if (!response.ok) {
-    throw new Error("Error 404: L'Acudit no s'ha trobat");
+    throw new Error("L'Acudit no s'ha trobat");
   }
   const data = await response.json();
   const jokeRequest = {
@@ -27,3 +29,11 @@ export const getChuckJoke = async (): Promise<JokeRequest> => {
 
   return jokeRequest;
 };
+export async function getRandomJoke() {
+  const oddOrEven = Math.floor(Math.random() * 100);
+  if (oddOrEven % 2 === 0) {
+    return await getJoke();
+  } else {
+    return await getChuckJoke();
+  }
+}

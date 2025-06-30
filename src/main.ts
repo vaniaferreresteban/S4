@@ -1,5 +1,4 @@
-import { getJoke } from './joke.ts';
-import { getChuckJoke } from './joke.ts';
+import { getRandomJoke } from './joke.ts';
 import { getWeather, organizeWeather } from './weather.ts';
 import type { ReportJoke } from './types/reportJoke.ts';
 import './styles/main.scss';
@@ -35,21 +34,29 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 function print(callback: string, target: HTMLElement) {
   target.innerHTML = callback;
 }
-async function getRandomJoke() {
-  const oddOrEven = Math.floor(Math.random() * 100);
-  if (oddOrEven % 2 === 0) {
-    return await getJoke();
-  } else {
-    return await getChuckJoke();
-  }
-}
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const joke: JokeRequest = await getRandomJoke();
-  const weather: MeteoStats = await getWeather();
+  let weather: MeteoStats;
+  let joke: JokeRequest;
   const jokeOutput = document.getElementById('jokeOutput') as HTMLElement;
   const weatherOutput = document.getElementById('weatherOutput') as HTMLElement;
   const form = document.getElementById('jokeForm') as HTMLFormElement;
+
+  try {
+    joke = await getRandomJoke();
+    print(joke.joke, jokeOutput);
+  } catch (error: unknown) {
+    const errorMessage = (error as Error).toString();
+    print(errorMessage, jokeOutput);
+  }
+  try {
+    weather = await getWeather();
+    print(organizeWeather(weather), weatherOutput);
+  } catch (error: unknown) {
+    const errorMessage = (error as Error).toString();
+    print(errorMessage, weatherOutput);
+  }
+
   const scoreButtons = document.querySelectorAll<HTMLInputElement>(
     '#jokeForm input[type="button"]',
   );
@@ -57,10 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     'selectedScore',
   ) as HTMLInputElement;
   const reportJokeArr: ReportJoke[] = [];
-
-  print(joke.joke || "no s'han trobat acudits", jokeOutput);
-  print(organizeWeather(weather), weatherOutput);
-  form?.addEventListener('click', async () => {});
+  form?.addEventListener('click', async () => { });
 
   scoreButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -71,8 +75,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   form?.addEventListener('submit', async (event: Event) => {
     event.preventDefault();
+
+    try {
+      joke = await getRandomJoke();
+      print(joke.joke, jokeOutput);
+    } catch (error: unknown) {
+      const errorMessage = (error as Error).toString();
+      print(errorMessage, jokeOutput);
+    }
+    try {
+      weather = await getWeather();
+      print(organizeWeather(weather), weatherOutput);
+    } catch (error: unknown) {
+      const errorMessage = (error as Error).toString();
+      print(errorMessage, weatherOutput);
+    }
     const formData = new FormData(form);
-    const joke = await getRandomJoke();
     const jokeID: string = joke.id;
     const score: number = formData ? Number(formData.get('selectedScore')) : 0;
     const date: string = new Date().toISOString();
