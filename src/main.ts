@@ -17,11 +17,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     
       <div>
         <label for="score1"></label>
-        <input data-score="1" type="button" name="score1" id="score1" value="😥" />
+        <input data-score="1" type="button" name="score1" id="score1" aria-label="Sad but Relieved" value="😥" />
         <label for="score2"></label>
-        <input data-score="2" type="button" name="score2" id="score2" value="🤨" />
+        <input data-score="2" type="button" name="score2" id="score2" aria-label="Raised Eyebrow" value="🤨" />
         <label for="score3"></label>
-        <input data-score="3" type="button" name="score3" id="score3" value="😆" />
+        <input data-score="3" type="button" name="score3" id="score3" aria-label="Grinning Squinting" value="😆" />
         
         <label for="selectedScore"></label>
         <input  type="hidden" name="selectedScore" id="selectedScore" value="0" />
